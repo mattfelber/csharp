@@ -7,19 +7,26 @@ class Program
     {
         Console.WriteLine("Hello World!");
 
-        // Number guessing
-
         Random randomGen = new Random();
         int randomNumber = randomGen.Next(0,10);
 
         int response;
+        bool isValidInput; // track input validity
+
         do
         {
             Console.WriteLine("Guess the number");
-            
-            response = int.Parse(Console.ReadLine());
 
-        } while (response != randomNumber);
+            // Assigns true only if an integer is entered
+            isValidInput = int.TryParse(Console.ReadLine(), out response);  
+            
+        
+        if (!isValidInput)
+            {
+                Console.WriteLine("Please enter a valid integer.");
+            }
+
+        } while (!isValidInput || response != randomNumber); 
         
         if (response == randomNumber)
         {
