@@ -16,8 +16,14 @@ class Program
         do
         {
             Console.WriteLine("Guess the number");
+            
             response = int.Parse(Console.ReadLine());
 
         } while (response != randomNumber);
+        
+        if (response == randomNumber)
+        {
+            Console.WriteLine($"You guessed it! Number {randomNumber}.");
+        }
     }
 }
