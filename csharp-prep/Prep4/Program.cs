@@ -19,6 +19,7 @@ class Program
         int sum = 0;
         float avg;
         int largest = 0;
+        int smallest_positive = 999999;
 
         do
         {
@@ -45,6 +46,10 @@ class Program
             largest = item;
         }
 
+        else if (item < smallest_positive && item > 0) {
+            smallest_positive = item;
+        }
+
     }
     
     avg = (float)sum / responseList.Count();
@@ -53,6 +58,8 @@ class Program
     Console.WriteLine($"Sum: {sum}");
     Console.WriteLine($"Average: {avg}");
     Console.WriteLine($"Largest: {largest}");
+    Console.WriteLine($"Smallest Positive: {smallest_positive}");
+
 
     }
 
