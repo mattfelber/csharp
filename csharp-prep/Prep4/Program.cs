@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 /*
 Compute the sum, or total, of the numbers in the list.
@@ -46,7 +47,7 @@ class Program
             largest = item;
         }
 
-        else if (item < smallest_positive && item > 0) {
+        else if (item > 0 && (smallest_positive == 999999 || item < smallest_positive)) {
             smallest_positive = item;
         }
 
@@ -60,6 +61,15 @@ class Program
     Console.WriteLine($"Largest: {largest}");
     Console.WriteLine($"Smallest Positive: {smallest_positive}");
 
+    // Displaying Sorted List
+    List<int> sortedList = new List<int>(responseList);
+    sortedList.Sort();
+    Console.WriteLine("The sorted list is:");
+
+    foreach (int item in sortedList)
+    {
+        Console.WriteLine(item);
+    }
 
     }
 
