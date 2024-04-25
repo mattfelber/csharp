@@ -3,9 +3,7 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 /*
 Compute the sum, or total, of the numbers in the list.
-
 Compute the average of the numbers in the list.
-
 Find the maximum, or largest, number in the list.
 */
 
