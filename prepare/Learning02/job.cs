@@ -16,8 +16,6 @@ public class Job
         _companyName = company;
         _startYear = startyear;
         _endYear = endyear;
-       
-
 }
 }
 /* public class Resume(string name, List<job>)
