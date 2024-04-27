@@ -17,6 +17,15 @@ public class Job
         _startYear = startyear;
         _endYear = endyear;
 }
+
+    public void DisplayJobDetails()
+    {
+        Console.WriteLine($"{_jobTitle} ({_companyName}) {_startYear}-{_endYear}");
+    }
+
+
+
+
 }
 /* public class Resume(string name, List<job>)
 {

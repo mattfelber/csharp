@@ -9,6 +9,10 @@ class Program
         Job woman = new Job("Alpinist", "BMX", 1998, 1999);
         Console.WriteLine(man._companyName);
         Console.WriteLine(woman._companyName);
+        man.DisplayJobDetails();
+        woman.DisplayJobDetails();
 
-}
+
+
+}       
 }
