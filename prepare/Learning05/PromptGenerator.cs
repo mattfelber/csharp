@@ -4,11 +4,8 @@ public class PromptGenerator
 {
     List<String> _prompts = new List<string>();
 
-
     public string RandomPrompt(){
-        return "";
+        return "Random Prompt";
     }
-
-
 
 }

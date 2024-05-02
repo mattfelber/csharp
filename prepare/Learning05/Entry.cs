@@ -4,6 +4,6 @@ public class Entry {
     String _entryText;
 
     public void Display(){
-        
+        Console.WriteLine("Entry's objects (date, prompt, and entry text)");
     }
 }
