@@ -1,0 +1,66 @@
+abstract classes You cant instantiate.
+You add the modifier "abstract" in the class definition
+public abstract class Animal. Contains at least one abstract method. An abstract method, is a method that doesn't contain a body. The abstract classes cannot be instantiated.
+
+public abstract class Animal {
+int age;
+String name;
+}
+
+You may want to instantiate a leopard object or a panther object,
+but you wouldnt want to create an Animal object. That's too general.
+
+You would want to instantiate a Car object, or a bike object, not a Vehicle object. Vehicle is too general, it's abstract. The subclasses Car and Bike must inherit the method signatures (empty body methods) from the vehicle class, and implement them
+
+You can choose to have abstract classes in your method. 
+All animals make noise, but each animal makes its noise in their own way. So you wouldn~t want tot implement makeNoise in your Animal class. But instead, in your specific object, like the iguana. You can also create concrete methods in your abstract class though.
+
+public abstract void makeNoise();
+
+//you declare it with the "abstract" modifier.
+//you dont specify a body for the method. 
+
+In all the child classes of the abstract class, you have to implement the method
+
+public class Dawg extends Animal {
+
+@Override
+public void makeNoise() {
+	System.out.printLn("Bark")
+}
+
+
+
+
+
+
+WHY use abstract classes?
+
+They enforce what each object has to have. If you want to create a new instanc of animal, it has to have certain methods implemented.
+} 
+
+
+How is an abstract class different than an interface?
+You use the interface keyword. It contains only abstract methods.
+(while abstract classes can have concrete methods).
+You do not need the abstract keyword in your intercafe methods.. They're assumed to be abstract. 
+
+public interface AnimalStuff {
+public void defecate();
+}
+
+public class Cat implements AnimallStuff  {
+//must implement inherited methods too.
+
+@override 
+public void poop() {
+//here you MUST 
+}
+
+}
+
+
+Its similar to an abstract class, but classes can apply more than one interface, inheritance is applied to 1 super.
+
+they do not implement the body of the methods. the classes that implement will have to. You only create the outline.
+

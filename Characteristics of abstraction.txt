@@ -1,0 +1,18 @@
+Characteristics of abstraction, abstract classes is that they are a base for other classes
+
+
+Summary
+
+Abstract classes in Java cannot be instantiated, but they can be used as parent classes for subclasses. Abstract methods can be declared in abstract classes and must be implemented in the subclasses. Abstract classes are used to enforce and organize common functionality and fields among subclasses.
+
+Highlights
+Abstract classes cannot be instantiated. 🚫
+Abstract methods can be declared in abstract classes. 
+Implementing interfaces in Java. 📚
+Differences between abstract classes and interfaces. ⚖️
+
+Key Insights
+    ⚙️ Abstract classes are used when you want to create a parent class that cannot be instantiated, but can be extended by subclasses. This allows for code reusability and organization.
+    📚 By implementing interfaces, you can ensure that unrelated classes have a certain functionality. Interfaces allow for multiple inheritance, while classes can only extend one parent class.
+    ⚖️ Abstract classes can have both abstract and concrete methods, while interfaces can only have abstract methods. Abstract classes can also have fields, while interfaces can only have static and final fields.
+
