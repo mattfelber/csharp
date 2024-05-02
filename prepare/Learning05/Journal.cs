@@ -16,7 +16,7 @@ public class Journal()
     }
 
     public void Load(){
-        Console.WriteLine("Loaded files");
+        Console.WriteLine("Loaded to files");
     }
 
     
