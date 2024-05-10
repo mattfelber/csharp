@@ -1,4 +1,5 @@
 using System;
+using System.Net.Sockets;
 using System.Xml.Serialization;
 /*
 Write a new entry - Show the user a random prompt (from a list that you create), and save their response, the prompt, and the date as an Entry.
@@ -40,35 +41,49 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("JOURNAL");
-        
+
         Journal myJournal = new Journal();
         int choice;
-
         bool shutdown = false;
 
-        while(shutdown != true){
+        do // Optional loop optimization
+        {
             Console.WriteLine("Main Menu:");
             Console.WriteLine("1. Write");
             Console.WriteLine("2. Display");
-            Console.WriteLine("3. Load");
-            Console.WriteLine("4. Save");
+            Console.WriteLine("3. Load"); // Add logic
+            Console.WriteLine("4. Save"); // Add logic
             Console.WriteLine("5. Quit");
 
             choice = Convert.ToInt32(Console.ReadLine());
 
-            if (choice == 1) {
-                myJournal.AddEntry();
+            if (choice == 1)
+            {
+                myJournal.AddEntry(); // Implement logic to add entry
+                Console.WriteLine("Entry added.");
+            }
+            else if (choice == 2)
+            {
+                myJournal.DisplayAll(); // Implement logic to display entries
+            }
+            else if (choice == 3)
+            {
+                Console.WriteLine("Method logic needed");
+            }
+            else if (choice == 4)
+            {
+                Console.WriteLine("Method logic needed");
+            }
+            else if (choice == 5)
+            {
+                shutdown = true;
+                Console.WriteLine("Exiting program.");
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice. Please enter 1, 2, 3, 4, or 5.");
             }
 
-
-
-
-        }
-
+        } while (!shutdown); // Exit when shutdown is true
     }
-
-
-
-
 }
-

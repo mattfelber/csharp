@@ -53,6 +53,18 @@ class Journal {
     }
 
     public void DisplayAll() {
+        if (_entries.Count == 0)
+        {
+            Console.WriteLine("No entries found.");
+        }
+
+        else
+        {
+            foreach (Entry entry in _entries)
+            {
+                entry.Display(); // Call Entry's Display method
+            }
+        }
 
     }
 
