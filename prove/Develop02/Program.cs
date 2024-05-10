@@ -72,7 +72,7 @@ class Program
             }
             else if (choice == 4)
             {
-                Console.WriteLine("Method logic needed");
+                myJournal.SaveToFile();
             }
             else if (choice == 5)
             {

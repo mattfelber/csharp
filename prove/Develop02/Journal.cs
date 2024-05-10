@@ -1,9 +1,17 @@
+using System.IO;
+using System.Collections.Generic;
+
 class Journal {
 
     public List<Entry> _entries;
-    public Journal() {_entries = new List<Entry>();}
+    
+    public Journal() 
+    {
+        _entries = new List<Entry>();
+    }
 
-    public void AddEntry() {
+    public void AddEntry() 
+    {
         PromptGenerator mygenerator = new PromptGenerator();
         string prompt = mygenerator.GetRandomPrompt();
 
@@ -21,7 +29,8 @@ class Journal {
 
     }
 
-    public void DisplayAll() {
+    public void DisplayAll()
+    {
         if (_entries.Count == 0)
         {
             Console.WriteLine("No entries found.");
@@ -37,11 +46,25 @@ class Journal {
 
     }
 
-    public void SaveToFile(String file) {
+    public void SaveToFile() 
+    {
+        Console.WriteLine("Enter a filename to save. ");
+        string filename = Console.ReadLine();
+        using (StreamWriter outputFile = new StreamWriter(filename))
+        {
+            foreach (Entry entry in _entries)
+            {
+                string cleanEntry = $"{entry._date}: Prompt: {entry._promptText} -{entry._entryText}";
+                outputFile.WriteLine(cleanEntry); 
+            }
+            
         
+        }
+        Console.WriteLine("Saved.");
     }
     
-    public void LoadFromFile(String file) {
+    public void LoadFromFile(String file) 
+    {
         
     }
 
