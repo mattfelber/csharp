@@ -8,9 +8,14 @@ class Entry {
 
     public void Display () {
         DateTime theCurrentTime = DateTime.Now;
-        string dateText = theCurrentTime.ToShortDateString();
-        Console.WriteLine(dateText);
+        string _date = theCurrentTime.ToShortDateString();
         
+        PromptGenerator myPrompt = new PromptGenerator();
+        string _promptText = myPrompt.GetRandomPrompt();
+
+        
+        Console.WriteLine($"{_date}: Prompt: {_promptText} {_entryText}");
     }
 
+    
 }
