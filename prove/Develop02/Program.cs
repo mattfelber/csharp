@@ -46,7 +46,7 @@ class Program
         int choice;
         bool shutdown = false;
 
-        do // Optional loop optimization
+        do 
         {
             Console.WriteLine("Main Menu:");
             Console.WriteLine("1. Write");
