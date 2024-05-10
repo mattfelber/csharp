@@ -1,4 +1,5 @@
 using System;
+using System.Xml.Serialization;
 /*
 Write a new entry - Show the user a random prompt (from a list that you create), and save their response, the prompt, and the date as an Entry.
 Display the journal - Iterate through all entries in the journal and display them to the screen.
@@ -40,8 +41,29 @@ class Program
     {
         Console.WriteLine("JOURNAL");
         
-        Entry myEntry = new Entry();
-        myEntry.Display();
+        Journal myJournal = new Journal();
+        int choice;
+
+        bool shutdown = false;
+
+        while(shutdown != true){
+            Console.WriteLine("Main Menu:");
+            Console.WriteLine("1. Write");
+            Console.WriteLine("2. Display");
+            Console.WriteLine("3. Load");
+            Console.WriteLine("4. Save");
+            Console.WriteLine("5. Quit");
+
+            choice = Convert.ToInt32(Console.ReadLine());
+
+            if (choice == 1) {
+                myJournal.AddEntry();
+            }
+
+
+
+
+        }
 
     }
 

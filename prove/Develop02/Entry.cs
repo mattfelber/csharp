@@ -12,8 +12,6 @@ class Entry {
         
         PromptGenerator myPrompt = new PromptGenerator();
         string _promptText = myPrompt.GetRandomPrompt();
-
-        
         Console.WriteLine($"{_date}: Prompt: {_promptText} {_entryText}");
     }
 
