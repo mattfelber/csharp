@@ -59,12 +59,12 @@ class Program
 
             if (choice == 1)
             {
-                myJournal.AddEntry(); // Implement logic to add entry
+                myJournal.AddEntry(); 
                 Console.WriteLine("Entry added.");
             }
             else if (choice == 2)
             {
-                myJournal.DisplayAll(); // Implement logic to display entries
+                myJournal.DisplayAll(); 
             }
             else if (choice == 3)
             {
