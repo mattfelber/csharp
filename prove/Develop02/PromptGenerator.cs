@@ -11,7 +11,7 @@ class PromptGenerator {
         "What did I do right today?",
         "What could I have done better today?",
         "What emotions did I experience today?",
-        "What virtues did I exercise today?"
+        "What virtues did I exercise today?" 
     };
 
     public string GetRandomPrompt()

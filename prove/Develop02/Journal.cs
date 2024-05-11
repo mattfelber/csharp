@@ -56,7 +56,6 @@ class Journal {
                 outputFile.WriteLine(cleanEntry); 
             }
             
-        
         }
         Console.WriteLine("Saved.");
     }
