@@ -30,10 +30,6 @@ public void makeNoise() {
 }
 
 
-
-
-
-
 WHY use abstract classes?
 
 They enforce what each object has to have. If you want to create a new instanc of animal, it has to have certain methods implemented.
