@@ -48,7 +48,7 @@ class Journal {
 
     public void SaveToFile() 
     {
-        Console.WriteLine("Enter a filename to save. ");
+        Console.WriteLine("Enter a filename to save as. ");
         string filename = Console.ReadLine();
         using (StreamWriter outputFile = new StreamWriter(filename))
         {
@@ -63,9 +63,16 @@ class Journal {
         Console.WriteLine("Saved.");
     }
     
-    public void LoadFromFile(String file) 
+    public void LoadFromFile(String filename) 
     {
-        
+        string[] lines = File.ReadAllLines(filename);
+
+        Console.WriteLine("Entries:");
+        foreach (string line in lines) 
+        {
+            Console.WriteLine(line);
+        }
+
     }
 
 }

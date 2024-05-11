@@ -67,8 +67,10 @@ class Program
                 myJournal.DisplayAll(); 
             }
             else if (choice == 3)
-            {
-                Console.WriteLine("Method logic needed");
+            {   
+                Console.WriteLine("Enter the filename to load.");
+                string filename = Console.ReadLine();
+                myJournal.LoadFromFile(filename);
             }
             else if (choice == 4)
             {
