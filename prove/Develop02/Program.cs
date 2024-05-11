@@ -74,7 +74,9 @@ class Program
             }
             else if (choice == 4)
             {
-                myJournal.SaveToFile();
+                Console.WriteLine("Enter a filename to save as.");
+                string file = Console.ReadLine();
+                myJournal.SaveToFile(file);
             }
             else if (choice == 5)
             {

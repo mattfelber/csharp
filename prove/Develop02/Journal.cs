@@ -46,11 +46,9 @@ class Journal {
 
     }
 
-    public void SaveToFile() 
+    public void SaveToFile(string file) 
     {
-        Console.WriteLine("Enter a filename to save as. ");
-        string filename = Console.ReadLine();
-        using (StreamWriter outputFile = new StreamWriter(filename))
+        using (StreamWriter outputFile = new StreamWriter(file))
         {
             foreach (Entry entry in _entries)
             {
