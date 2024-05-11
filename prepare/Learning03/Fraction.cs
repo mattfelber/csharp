@@ -1,7 +1,6 @@
 using System.Net;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.Serialization;
-
 public class Fraction
 {
     private int _upper;
@@ -44,12 +43,10 @@ public class Fraction
     {
         return _lower;
     }
-
     public string GetFractionString(){
         string fractionString = $"{_upper}/{_lower}";
         return fractionString;
     }
-
     public double GetDecimalValue()
     {
         double decimalValue = _upper/(double) _lower;

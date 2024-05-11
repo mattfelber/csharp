@@ -1,8 +1,5 @@
 using System;
-
 class Program
-
-
 {
     static void Main(string[] args)
     {
@@ -43,13 +40,5 @@ class Program
         Fraction onlyUpper = new Fraction(21);
         Console.WriteLine(onlyUpper.GetFractionString());
         Console.WriteLine(onlyUpper.GetDecimalValue());
-
-
-
-
     }
-
-
-
-
 }
