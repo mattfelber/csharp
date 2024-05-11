@@ -29,6 +29,24 @@ class Program
         Console.WriteLine(fractionString);
         Console.WriteLine(decimalValue);
 
+        /*Fraction overload*/
+        Fraction fraction2 = new Fraction(22);
+        Console.WriteLine(fraction2.GetFractionString());
+        Console.WriteLine(fraction2.GetDecimalValue());
+        
+        /*Fraction overload*/
+        Fraction wholeNum = new Fraction(20);
+        Console.WriteLine(wholeNum.GetFractionString());
+        Console.WriteLine(wholeNum.GetDecimalValue());
+
+        /*Fraction overload*/
+        Fraction onlyUpper = new Fraction(21);
+        Console.WriteLine(onlyUpper.GetFractionString());
+        Console.WriteLine(onlyUpper.GetDecimalValue());
+
+
+
+
     }
 
 

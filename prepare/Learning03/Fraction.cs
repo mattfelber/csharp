@@ -10,8 +10,19 @@ public class Fraction
     public Fraction()
     {
         _upper = 1;
+        _lower = 1;   
+    }
+
+    public Fraction(int wholeNumber)
+    {
+        _upper = wholeNumber;
         _lower = 1;
-        
+    }
+
+    public Fraction(int upper, int lower)
+    {
+        _upper = upper;
+        _lower = lower;
     }
 
     public void SetUpper(int num)
