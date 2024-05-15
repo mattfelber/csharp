@@ -31,6 +31,7 @@ public class Scripture
         foreach (Word word in _words)
         {
             builder.Append(word.GetDisplayText());
+            builder.Append(' '); // Add a space after each word
         }
         builder.Append(" - ");
         builder.Append(_reference.GetDisplayText());
@@ -54,6 +55,6 @@ public class Scripture
 
     public bool IsCompletelyHidden()
     {
-        return _words.All(word => word.IsHidden);
+        return _words.All(word => word.IsHidden());
     }
 }
