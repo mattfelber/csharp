@@ -2,19 +2,29 @@ using System;
 
 public class Program
 {
+    public static List<Scripture> scriptures = new List<Scripture>()
+    {
+        new Scripture(new Reference("Matthew", 5, 9), "Blessed are the peacemakers, for they will be called sons of God."),
+        new Scripture(new Reference("Proverbs", 11, 2), "When pride comes, then comes disgrace, but with the humble is wisdom."),
+        new Scripture(new Reference("John", 14, 6), "Jesus answered: I am the way and the truth and the life. No one comes to the Father except through me.")
+        // ... added more scriptures ...
+    };
+
     public static void Main(string[] args)
     {
-        
-        Reference reference = new Reference("Matthew", 5, 9);
+        Console.WriteLine("Select a Scripture:"); for (int i = 0; i < scriptures.Count; i++) { Console.WriteLine($"{i + 1}. {scriptures[i].GetDisplayText()}"); // Display reference for selection }
 
-       
-        string scriptureText = "Blessed are the peacemakers, for they will be called sons of God.";
-        Scripture scripture = new Scripture(reference, scriptureText);
+        int choice; 
+
+        do { Console.Write("Enter your choice (1-" + scriptures.Count + "): "); 
+        } while (!int.TryParse(Console.ReadLine(), out choice) || choice < 1 || choice > scriptures.Count); 
+        
+        Scripture chosenScripture = scriptures[choice - 1];
 
         while (true)
         {
             
-            Console.WriteLine(scripture.GetDisplayText());
+            Console.WriteLine(chosenScripture.GetDisplayText());
 
             
             Console.Write("Press Enter to hide 3 words (or 'quit' to exit): ");
@@ -27,10 +37,11 @@ public class Program
             else
             {
                 // Hides 3 random words if user presses Enter
-                scripture.HideRandomWords(3);
+                chosenScripture.HideRandomWords(3);
             }
         }
     }
+}
 }
         
 /*  Scripture
