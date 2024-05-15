@@ -7,34 +7,26 @@ class Program
         Console.WriteLine("Hello Develop03 World!");
     }
 
-        /*
         
-    Scripture
+/*  Scripture
+    _reference: Reference
+    _words: List<Word>
+    Scripture (reference:Reference, text: string)
         HideRandomWords(numberToHide : int) : void
         GetDisplayText() : string
         IsCompletelyHidden() : bool
+    
     Word
+    _text: string
+    _isHidden: bool
+    word(text: string)
         Hide() : void
         Show() : void
         IsHidden() : bool
         GetDisplayText() : string
-    Reference
-        GetDisplayText() : string
-        Possible getters and setters
 
-    
-    Scripture
-        _reference : Reference
-        _words : List<Word>
-    Word
-        _text : string
-        _isHidden : bool
-    Reference
-        _book : string
-        _chapter : int
-        _verse : int
-        _endVerse : int
 
-    
-    */
+    Reference
+        GetDisplayText() : string*/
+
 }
