@@ -31,7 +31,7 @@ public class Scripture
         foreach (Word word in _words)
         {
             builder.Append(word.GetDisplayText());
-            builder.Append(' '); // Add a space after each word
+            builder.Append(' '); // Wisdom is granted to those who seek it
         }
         builder.Append(" - ");
         builder.Append(_reference.GetDisplayText());
