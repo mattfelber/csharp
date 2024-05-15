@@ -28,33 +28,50 @@ public class Scripture
     public string GetDisplayText()
     {
         StringBuilder builder = new StringBuilder();
+        bool isFirstWord = true; // Track if it's the first word
+
         foreach (Word word in _words)
         {
+            if (!isFirstWord) // Check if it's not the first word
+            {
+                builder.Append(' '); // Add space only after the first word
+            }
             builder.Append(word.GetDisplayText());
-            builder.Append(' '); // Wisdom is granted to those who seek it
+            isFirstWord = false; // Update state after first word
         }
+
         builder.Append(" - ");
         builder.Append(_reference.GetDisplayText());
         return builder.ToString();
     }
 
-    public void HideRandomWords(int numberToHide)
+    public int HideRandomWords(int numberToHide)
     {
         if (numberToHide <= 0)
         {
-            return;
+            return 0; // No words hidden if numberToHide is less than or equal to zero
         }
 
+        int wordsHidden = 0;
         Random random = new Random();
         for (int i = 0; i < numberToHide; i++)
         {
             int randomIndex = random.Next(_words.Count);
-            _words[randomIndex].Hide();
+            if (!_words[randomIndex].IsHidden()) // Check if word is already hidden before hiding
+            {
+                _words[randomIndex].Hide();
+                wordsHidden++;
+            }
         }
+        return wordsHidden; // Return the number of words actually hiddens
     }
 
     public bool IsCompletelyHidden()
     {
         return _words.All(word => word.IsHidden());
     }
+
+    
+
+
 }

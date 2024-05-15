@@ -12,37 +12,44 @@ public class Program
 
     public static void Main(string[] args)
     {
-        Console.WriteLine("Select a Scripture:"); for (int i = 0; i < scriptures.Count; i++) { Console.WriteLine($"{i + 1}. {scriptures[i].GetDisplayText()}"); // Display reference for selection }
+    Console.WriteLine("Select a Scripture:");
+    for (int i = 0; i < scriptures.Count; i++)
+    {
+        Console.WriteLine($"{i + 1}. {scriptures[i].GetDisplayText()}"); // Display reference for selection
+    }
 
-        int choice; 
+    int choice;
 
-        do { Console.Write("Enter your choice (1-" + scriptures.Count + "): "); 
-        } while (!int.TryParse(Console.ReadLine(), out choice) || choice < 1 || choice > scriptures.Count); 
-        
-        Scripture chosenScripture = scriptures[choice - 1];
+    do
+    {
+        Console.Write("Enter your choice (1-" + scriptures.Count + "): ");
+    } while (!int.TryParse(Console.ReadLine(), out choice) || choice < 1 || choice > scriptures.Count);
 
-        while (true)
+    Scripture chosenScripture = scriptures[choice - 1];
+
+    while (true)
+    {
+        Console.WriteLine(chosenScripture.GetDisplayText()); // Display scripture with hidden words
+
+        Console.Write("Press Enter to hide words (or 'quit' to exit): ");
+        string userInput = Console.ReadLine();
+
+        if (userInput.ToLower() == "quit")
         {
-            
-            Console.WriteLine(chosenScripture.GetDisplayText());
-
-            
-            Console.Write("Press Enter to hide 3 words (or 'quit' to exit): ");
-            string userInput = Console.ReadLine();
-
-            if (userInput.ToLower() == "quit")
-            {
-                break;
-            }
-            else
-            {
-                // Hides 3 random words if user presses Enter
-                chosenScripture.HideRandomWords(3);
-            }
+            break; // Exit the loop when user enters "quit"
+        }
+        else if (chosenScripture.IsCompletelyHidden())
+        {
+            Console.WriteLine("All words are already hidden!");
+        }
+        else
+        {
+            chosenScripture.HideRandomWords(3); // Hide random words (no need to store the count)
         }
     }
 }
 }
+
         
 /*  Scripture
     _reference: Reference
