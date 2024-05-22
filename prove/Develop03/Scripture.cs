@@ -1,4 +1,3 @@
-
 /*Scripture
 _reference: Reference
 _words: List<Word>
@@ -28,16 +27,15 @@ public class Scripture
     public string GetDisplayText()
     {
         StringBuilder builder = new StringBuilder();
-        bool isFirstWord = true; // Track if it's the first word
-
+        bool isFirstWord = true; 
         foreach (Word word in _words)
         {
-            if (!isFirstWord) // Check if it's not the first word
+            if (!isFirstWord) 
             {
-                builder.Append(' '); // Add space only after the first word
+                builder.Append(' '); 
             }
             builder.Append(word.GetDisplayText());
-            isFirstWord = false; // Update state after first word
+            isFirstWord = false; 
         }
 
         builder.Append(" - ");
@@ -57,21 +55,18 @@ public class Scripture
         for (int i = 0; i < numberToHide; i++)
         {
             int randomIndex = random.Next(_words.Count);
-            if (!_words[randomIndex].IsHidden()) // Check if word is already hidden before hiding
+            if (!_words[randomIndex].IsHidden()) 
             {
                 _words[randomIndex].Hide();
                 wordsHidden++;
             }
         }
-        return wordsHidden; // Return the number of words actually hiddens
+        return wordsHidden; 
     }
 
     public bool IsCompletelyHidden()
     {
         return _words.All(word => word.IsHidden());
     }
-
-    
-
 
 }
