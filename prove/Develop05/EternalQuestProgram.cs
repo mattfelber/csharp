@@ -26,20 +26,21 @@ public class EternalQuestProgram
         return;
     }
     goals.Add(newGoal);
+    return;
   }
 
   public void RecordGoalCompletion(string goalName)
-  {
+{
     foreach (Goal goal in goals)
     {
-      if (goal.GetName() == goalName)
-      {
-        // 
-        return;
-      }
+        if (goal.GetName() == goalName)
+        {
+            goal.MarkCompleted(); // Mark the goal as completed
+            return;
+        }
     }
     Console.WriteLine("Goal not found.");
-  }
+}
 
   public void ListGoals()
   {

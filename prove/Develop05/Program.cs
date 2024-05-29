@@ -60,8 +60,9 @@ public class Program
     int points = int.Parse(Console.ReadLine());
     Console.Write("Enter goal type (simple, eternal, checklist): ");
     string goalType = Console.ReadLine();
-    Console.Write("Enter target completions (for checklist goals only): ");
-    int targetCompletions = (goalType.ToLower() == "checklist") ? int.Parse(Console.ReadLine()) : 0;
+  Console.Write("Enter target completions (for checklist goals only): ");
+  int targetCompletions = (goalType.ToLower() == "checklist") ? int.Parse(Console.ReadLine()) : 0;
+  Console.Clear();
     return new Dictionary<string, string>() { { "name", name }, { "description", description }, { "points", points.ToString() }, { "goalType", goalType }, { "targetCompletions", targetCompletions.ToString() } };
   }
 
