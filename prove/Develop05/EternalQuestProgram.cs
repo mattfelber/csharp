@@ -29,16 +29,17 @@ public class EternalQuestProgram
   }
 
   public void RecordGoalCompletion(string goalName)
-{
-  foreach (Goal goal in goals)
   {
-    if (goal.GetName() == goalName)
+    foreach (Goal goal in goals)
     {
-      return;
+      if (goal.GetName() == goalName)
+      {
+        // 
+        return;
+      }
     }
+    Console.WriteLine("Goal not found.");
   }
-  Console.WriteLine("Goal not found.");
-}
 
   public void ListGoals()
   {
@@ -63,25 +64,5 @@ public class EternalQuestProgram
       totalPoints += goal.GetPoints();
     }
     return totalPoints;
-  }
-
-  public static void Main(string[] args)
-  {
-    EternalQuestProgram program = new EternalQuestProgram();
-
-    // Sample usage (replace with your own interactive menu)
-    program.AddGoal("Study Scriptures", "Read for 15 minutes daily", 100, "eternal");
-    program.AddGoal("Go for a Run", "Run 3 miles", 200, "simple");
-    program.AddGoal("Attend Temple", "Attend weekly", 50, "checklist", 4);
-
-    program.RecordGoalCompletion("Study Scriptures");
-    program.RecordGoalCompletion("Go for a Run");
-    program.RecordGoalCompletion("Attend Temple");
-    program.RecordGoalCompletion("Attend Temple"); // Second completion for checklist
-
-    program.ListGoals();
-
-    int totalPoints = program.GetTotalPoints();
-    Console.WriteLine($"Total Points: {totalPoints}");
   }
 }
