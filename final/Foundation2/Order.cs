@@ -29,13 +29,13 @@ public class Order
         string label = "Packing Label:\n";
         foreach (Product product in products)
         {
-            label += $"  - {product.Name} (ID: {product.ProductId})\n";
+            label += $"-{product.Name} (ID: {product.ProductId})\n";
         }
         return label;
     }
 
     public string GetShippingLabel()
     {
-        return $"Shipping Label:\n  Customer: {customer.Name}\n  Address:\n{customer.Address.GetFullAddress()}";
+        return $"Shipping Label:\nCustomer: {customer.Name}\nAddress:\n{customer.Address.GetFullAddress()}";
     }
 }
