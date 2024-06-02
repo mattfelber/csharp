@@ -4,13 +4,13 @@ public class Program
 {
     static void Main(string[] args)
     {
-        // Create some addresses
+        // addresses
         Address address1 = new Address("1 Life", "Oncherio", "CA", "USA");
         Address address2 = new Address("2 Pac Rd", "Compton", "Ontario", "Canada");
         Address address3 = new Address("Ali Baba", "Columbus", "Ohio", "USA");
 
 
-        // Create events of different types
+        // events
         Event lecture = new Lecture(
             "Machine Learning without a Diploma",
             "Acquire PhD level knowledge in 3 hours",
@@ -39,7 +39,7 @@ public class Program
             "wilma@usa.mil"
         );
 
-        // marketing messages for each event
+        // info for each event
 
         Console.WriteLine("Lecture Details");
         //Console.WriteLine(lecture.GetStandardDetails());
