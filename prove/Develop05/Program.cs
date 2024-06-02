@@ -1,74 +1,88 @@
-using System; 
-
 public class Program
 {
-  public static void Main(string[] args)
-  {
-    // Create an instance of EternalQuestProgram
-    EternalQuestProgram program = new EternalQuestProgram();
-
-    // User menu loop
-    bool running = true;
-    while (running)
+    static void Main(string[] args)
     {
-      Console.WriteLine("\n** Eternal Quest Menu **");
-      Console.WriteLine("1. Add Goal");
-      Console.WriteLine("2. Record Goal Completion");
-      Console.WriteLine("3. List Goals");
-      Console.WriteLine("4. View Total Points");
-      Console.WriteLine("5. Exit");
+        Quest quest = new Quest(); // Create a new Quest instance
 
-      string choice = Console.ReadLine();
+        bool continueProgram = true;
+        while (continueProgram)
+        {
+            // Display menu options
+            Console.WriteLine("\n** Eternal Quest Menu **");
+            Console.WriteLine("1. Add Goal");
+            Console.WriteLine("2. Record Event");
+            Console.WriteLine("3. Show Goals");
+            Console.WriteLine("4. Show Score");
+            Console.WriteLine("5. Exit");
+            Console.Write("Enter your choice: ");
 
-      switch (choice.ToLower())
-      {
-        case "1":
-          program.AddGoal(GetGoalDetails()["name"], GetGoalDetails()["description"], 
-                int.Parse(GetGoalDetails()["points"]), GetGoalDetails()["goalType"], 
-                int.Parse(GetGoalDetails()["targetCompletions"]));
-          break;
-        case "2":
-          program.RecordGoalCompletion(GetGoalName()); // Call method to get goal name
-          break;
-        case "3":
-          program.ListGoals();
-          break;
-        case "4":
-          int totalPoints = program.GetTotalPoints();
-          Console.WriteLine($"Total Points: {totalPoints}");
-          break;
-        case "5":
-          running = false;
-          break;
-        default:
-          Console.WriteLine("Invalid choice. Please try again.");
-          break;
-      }
+            string choice = Console.ReadLine();
+
+            switch (choice)
+            {
+                case "1":
+                    AddGoal(quest);
+                    break;
+                case "2":
+                    RecordEvent(quest);
+                    break;
+                case "3":
+                    quest.DisplayGoals();
+                    break;
+                case "4":
+                    Console.WriteLine($"Your current score is: {quest.GetScore()} points");
+                    break;
+                case "5":
+                    continueProgram = false;
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice. Please try again.");
+                    break;
+            }
+        }
+
+        Console.WriteLine("Exiting Eternal Quest...");
     }
 
-    Console.WriteLine("Exiting Eternal Quest...");
-  }
+    static void AddGoal(Quest quest)
+    {
+        Console.WriteLine("\n** Add Goal **");
+        Console.Write("Enter goal type (simple, eternal, checklist): ");
+        string type = Console.ReadLine().ToLower();
 
-  // Helper methods to get user input for adding goals and goal names
-  private static Dictionary<string, string> GetGoalDetails()
-  {
-    Console.Write("Enter goal name: ");
-    string name = Console.ReadLine();
-    Console.Write("Enter goal description: ");
-    string description = Console.ReadLine();
-    Console.Write("Enter points for this goal: ");
-    int points = int.Parse(Console.ReadLine());
-    Console.Write("Enter goal type (simple, eternal, checklist): ");
-    string goalType = Console.ReadLine();
-  Console.Write("Enter target completions (for checklist goals only): ");
-  int targetCompletions = (goalType.ToLower() == "checklist") ? int.Parse(Console.ReadLine()) : 0;
-  Console.Clear();
-    return new Dictionary<string, string>() { { "name", name }, { "description", description }, { "points", points.ToString() }, { "goalType", goalType }, { "targetCompletions", targetCompletions.ToString() } };
-  }
+        Console.Write("Enter goal name: ");
+        string name = Console.ReadLine();
 
-  private static string GetGoalName()
-  {
-    Console.Write("Enter the name of the goal to complete: ");
-    return Console.ReadLine();
-  }
+        Console.Write("Enter points per event: ");
+        int points = int.Parse(Console.ReadLine());
+
+        switch (type)
+        {
+            case "simple":
+                quest.AddGoal(new SimpleGoal(name, points));
+                break;
+            case "eternal":
+                quest.AddGoal(new EternalGoal(name, points));
+                break;
+            case "checklist":
+                Console.Write("Enter target completion count: ");
+                int targetCount = int.Parse(Console.ReadLine());
+                quest.AddGoal(new ChecklistGoal(name, points, targetCount));
+                break;
+            default:
+                Console.WriteLine("Invalid goal type.");
+                break;
+        }
+
+        Console.WriteLine("Goal added successfully!");
+    }
+
+    static void RecordEvent(Quest quest)
+    {
+        Console.WriteLine("\n** Record Event **");
+        Console.Write("Enter goal name to record: ");
+        string goalName = Console.ReadLine();
+
+        quest.RecordEvent(goalName);
+    }
 }
